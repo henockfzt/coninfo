@@ -1,0 +1,38 @@
+<h1>Material Prices</h1>
+<div>
+
+  <div style="display:flex;background:#fafafa;padding:40px;justify-content: space-between">
+    <label for="name"></label>
+    <input id="name" style="flex:0.4;" nz-input placeholder="Name" [(ngModel)]="value" />
+    <h2 >Price Range:</h2>
+    <span style="margin-left: 40px;align-self:center;">100BR</span>
+    <nz-slider style="flex:0.4;" nzRange [(ngModel)]="value2" [nzDisabled]="disabled"></nz-slider>
+    <span style="margin-left: 40px;align-self:center;">1000BR</span>
+    <button nz-button nzType="primary" >Filter</button>
+  </div>
+
+</div>
+
+<nz-table #basicTable [nzData]="dataSet">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Unit</th>
+    <th>Unit Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let material of materials">
+    <td>{{material.name}}</td>
+    <td>{{material.type}}</td>
+    <td>{{material.unit}}</td>
+    <td>{{material.unitprice}}</td>
+    <td>
+      <a>Edit 一 {{material.name}}</a>
+      <nz-divider nzType="vertical"></nz-divider>
+      <a>Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
